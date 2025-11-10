@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local"
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const anticDidone = localFont({
+  src: "./fonts/AnticDidone-Regular.ttf",
+  variable: "--font-anticDidone",
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = localFont({
+  src: [
+    { path: "./fonts/Inter_28pt-Light.ttf" },
+    { path: "./fonts/Inter_28pt-Thin.ttf" },
+  ],
+  variable: "--font-inter",
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${anticDidone.variable} antialiased`}
       >
         {children}
       </body>
