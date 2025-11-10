@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useRef } from "react"
+import * as THREE from "three"
 import {
   OrbitControls,
   Image as DreiImage,
@@ -27,7 +28,7 @@ const photos: PhotoSpec[] = [
     scale: 1.2,
     rotationY: -0.25,
   },
-  { url: "/images/sflower4.jpg", position: [-1, -1, 0], scale:1.5 },
+  { url: "/images/sflower4.jpg", position: [-1, -1, 0], scale: 1.5 },
   { url: "/images/sflower5.jpg", position: [-1, -1.5, 0], scale: 2 },
   {
     url: "/images/sflower6.jpg",
@@ -39,7 +40,7 @@ const photos: PhotoSpec[] = [
 ]
 
 function Photo({ url, position, scale = 1.5, rotationY = 0 }: PhotoSpec) {
-  const ref = useRef(null!)
+  const ref = useRef<THREE.Mesh>(null!)
   const target = useRef(new Vector3(...position))
 
   // petit effet de “breathing” et hover
@@ -58,15 +59,15 @@ function Photo({ url, position, scale = 1.5, rotationY = 0 }: PhotoSpec) {
 
   return (
     <group
-      position={target.current.toArray() as [number, number, number]}
+      position={position}
       rotation={[0, rotationY, 0]}
     >
       <DreiImage
-        ref={ref}
+        ref={ref as never}
         url={url}
         transparent
         toneMapped
-        scale={[scale, scale, 1]}
+        // scale={[scale, scale, 1]}
         onPointerOver={(e) => {
           e.stopPropagation()
           setHovered(true)
