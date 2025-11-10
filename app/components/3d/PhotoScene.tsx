@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
+import { useRef } from "react"
 import {
   OrbitControls,
   Image as DreiImage,
@@ -38,8 +39,8 @@ const photos: PhotoSpec[] = [
 ]
 
 function Photo({ url, position, scale = 1.5, rotationY = 0 }: PhotoSpec) {
-  const ref = React.useRef<THREE.Mesh>(null!)
-  const target = React.useRef(new Vector3(...position))
+  const ref = useRef(null!)
+  const target = useRef(new Vector3(...position))
 
   // petit effet de “breathing” et hover
   const [hovered, setHovered] = React.useState(false)
@@ -61,7 +62,7 @@ function Photo({ url, position, scale = 1.5, rotationY = 0 }: PhotoSpec) {
       rotation={[0, rotationY, 0]}
     >
       <DreiImage
-        ref={ref as any}
+        ref={ref}
         url={url}
         transparent
         toneMapped

@@ -3,7 +3,7 @@ import Link from "next/link"
 
 import Separator from "./components/ui/Separator/Separator"
 import PhotoScene from "./components/3d/PhotoScene"
-import PhotoWallScene from "./components/3d/PhotoWall"
+
 
 export default function Home() {
   return (
