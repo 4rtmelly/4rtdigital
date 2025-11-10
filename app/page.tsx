@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import DecryptedText from "./components/ui/DecryptedText"
+
 import Separator from "./components/ui/Separator/Separator"
 
 export default function Home() {
@@ -22,40 +22,9 @@ export default function Home() {
         {/* HERO SECTION */}
         <section className="relative mx-auto w-4/5 h-dvh flex flex-col items-center justify-center">
           <div className="w-full flex flex-row justify-around">
-            {/* <span> [SHOW] </span> */}
-            <DecryptedText
-              text="[SHOW]"
-              speed={100}
-              maxIterations={20}
-              characters="ABCD1234!?"
-              className="revealed"
-              parentClassName="all-letters"
-              encryptedClassName="encrypted"
-              animateOn="view"
-              revealDirection="center"
-            />
-            <DecryptedText
-              text="[YOUR]"
-              speed={100}
-              maxIterations={20}
-              characters="ABCD1234!?"
-              className="revealed"
-              parentClassName="all-letters"
-              encryptedClassName="encrypted"
-              animateOn="view"
-              revealDirection="center"
-            />{" "}
-            <DecryptedText
-              text="[ART]"
-              speed={100}
-              maxIterations={20}
-              characters="ABCD1234!?"
-              className="revealed"
-              parentClassName="all-letters"
-              encryptedClassName="encrypted"
-              animateOn="view"
-              revealDirection="center"
-            />
+            <span> [SHOW] </span>
+            <span> [YOUR] </span>
+            <span> [ART] </span>
           </div>
           <video className="opacity-45 h-dvh" muted autoPlay loop playsInline>
             <source src="/images/heromp.mp4" type="video/mp4" />
@@ -76,7 +45,7 @@ export default function Home() {
         </section>
         {/* INTRO SECTION */}
         <section className=" mx-auto w-4/5 min-h-screen flex flex-col items-center justify-between">
-          <div className="items-center justify-start">
+          <div className="items-center justify-start pt-10">
             <Separator label="ABLE TO DISPLAY YOUR ART EVERY MONTH" />
           </div>
           <Image
@@ -90,6 +59,8 @@ export default function Home() {
             <Separator label="SHOW YOUR POTENTIAL TO THE WORLD" />
           </div>
         </section>
+        {/* EXPLORE 3D */}
+        <section></section>
       </div>
     </>
   )
