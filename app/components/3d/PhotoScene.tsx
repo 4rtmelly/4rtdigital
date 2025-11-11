@@ -15,44 +15,39 @@ import { Vector3 } from "three"
 type PhotoSpec = {
   url: string
   position: [number, number, number]
-  scale?: number // largeur en unités (hauteur auto via ratio)
+  scale: number // largeur en unités (hauteur auto via ratio)
   rotationY?: number
 }
 
 const photos: PhotoSpec[] = [
-  { url: "/images/sflower1.jpg", position: [-1.8, 0.6, 0], scale: 1.4 },
-  { url: "/images/sflower2.jpg", position: [2, -0.4, 0], scale: 1.6 },
+  { url: "/images/sflower1.jpg", position: [-1.8, 0.6, 0], scale: 1.3 },
+  { url: "/images/sflower2.jpg", position: [3.5, -0.4, 0], scale: 1.3 },
   {
     url: "/images/sflower3.jpg",
-    position: [1.9, 0.3, 0],
-    scale: 1.2,
-    rotationY: -0.25,
+    position: [1.5, 0, 0],
+    scale: 1.8,
   },
-  { url: "/images/sflower4.jpg", position: [-1, -1, 0], scale: 1.5 },
-  { url: "/images/sflower5.jpg", position: [-0.5, 0, 0], scale: 2 },
+  { url: "/images/sflower4.jpg", position: [-1, -1, 0], scale: 2.4 },
+  { url: "/images/sflower5.jpg", position: [2.5, -1.7, 0], scale: 1.5 },
   {
     url: "/images/sflower6.jpg",
-    position: [-2.5, -1, 0],
-    scale: 1.5,
-    rotationY: -0.25,
+    position: [-3.5, -1, 0],
+    scale: 1.2,
   },
-  { url: "/images/sflower7.jpg", position: [3, 2.6, 0], scale: 2 },
+  { url: "/images/sflower7.jpg", position: [0.7, 1.8, 0], scale: 1 },
 ]
 
 function Photo({ url, position, scale = 1.5, rotationY = 0 }: PhotoSpec) {
   const ref = useRef<THREE.Mesh>(null!)
-  const target = useRef(new Vector3(...position))
-
-  // petit effet de “breathing” et hover
+  const base = useRef<number>(scale) // <-- mémorise la taille d’origine
   const [hovered, setHovered] = React.useState(false)
+
   useFrame((_, dt) => {
     if (!ref.current) return
-    // scale doux au survol
     const s = ref.current.scale
-    const goal = hovered ? 1.06 : 1.0
-    s.setScalar(s.x + (goal - s.x) * Math.min(1, dt * 6))
-
-    // légère flottaison
+    const goal = base.current * (hovered ? 1.06 : 1.0) // <-- relatif à la base
+    const next = s.x + (goal - s.x) * Math.min(1, dt * 6)
+    s.set(next, next, 1)
     ref.current.position.y =
       position[1] + Math.sin(Date.now() * 0.001 + position[0]) * 0.02
   })
@@ -64,7 +59,7 @@ function Photo({ url, position, scale = 1.5, rotationY = 0 }: PhotoSpec) {
         url={url}
         transparent
         toneMapped
-        // scale={[scale, scale, 1]}
+        scale={scale} // <-- conserve des tailles différentes
         onPointerOver={(e) => {
           e.stopPropagation()
           setHovered(true)
@@ -78,6 +73,46 @@ function Photo({ url, position, scale = 1.5, rotationY = 0 }: PhotoSpec) {
     </group>
   )
 }
+
+// function Photo({ url, position, scale, rotationY = 0 }: PhotoSpec) {
+//   const ref = useRef<THREE.Mesh>(null!)
+//   const target = useRef(new Vector3(...position))
+
+//   // petit effet de “breathing” et hover
+//   const [hovered, setHovered] = React.useState(false)
+//   useFrame((_, dt) => {
+//     if (!ref.current) return
+//     // scale doux au survol
+//     const s = ref.current.scale
+//     const goal = hovered ? 1.06 : 1.0
+//     s.setScalar(s.x + (goal - s.x) * Math.min(1, dt * 6))
+
+//     // légère flottaison
+//     ref.current.position.y =
+//       position[1] + Math.sin(Date.now() * 0.001 + position[0]) * 0.02
+//   })
+
+//   return (
+//     <group position={position} rotation={[0, rotationY, 0]}>
+//       <DreiImage
+//         ref={ref as never}
+//         url={url}
+//         transparent
+//         toneMapped
+//         scale={scale}
+//         onPointerOver={(e) => {
+//           e.stopPropagation()
+//           setHovered(true)
+//           document.body.style.cursor = "pointer"
+//         }}
+//         onPointerOut={() => {
+//           setHovered(false)
+//           document.body.style.cursor = "auto"
+//         }}
+//       />
+//     </group>
+//   )
+// }
 // --- 🎯 composant de zoom temporaire
 function ZoomOnDrag({ zoomFactor = 0.92 }: { zoomFactor?: number }) {
   const { camera } = useThree()
@@ -105,7 +140,7 @@ function ZoomOnDrag({ zoomFactor = 0.92 }: { zoomFactor?: number }) {
 
 export default function PhotoScene() {
   return (
-    <div className="w-full h-[90vh]">
+    <div className="w-full h-[80vh]">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 50 }}
         dpr={[1, 2]} // DPR adaptatif
