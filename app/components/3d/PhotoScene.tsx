@@ -1,8 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { Canvas, useFrame } from "@react-three/fiber"
-import { useRef } from "react"
+import { Canvas, useFrame, useThree } from "@react-three/fiber"
+import { useEffect, useRef, useState } from "react"
 import * as THREE from "three"
 import {
   OrbitControls,
@@ -29,10 +29,10 @@ const photos: PhotoSpec[] = [
     rotationY: -0.25,
   },
   { url: "/images/sflower4.jpg", position: [-1, -1, 0], scale: 1.5 },
-  { url: "/images/sflower5.jpg", position: [-1, -1.5, 0], scale: 2 },
+  { url: "/images/sflower5.jpg", position: [-0.5, 0, 0], scale: 2 },
   {
     url: "/images/sflower6.jpg",
-    position: [3, -2.3, 0],
+    position: [-2.5, -1, 0],
     scale: 1.5,
     rotationY: -0.25,
   },
@@ -58,16 +58,13 @@ function Photo({ url, position, scale = 1.5, rotationY = 0 }: PhotoSpec) {
   })
 
   return (
-    <group
-      position={position}
-      rotation={[0, rotationY, 0]}
-    >
+    <group position={position} rotation={[0, rotationY, 0]}>
       <DreiImage
         ref={ref as never}
         url={url}
         transparent
         toneMapped
-        // scale={[scale, scale, 1]}
+        scale={[scale, scale, 1]}
         onPointerOver={(e) => {
           e.stopPropagation()
           setHovered(true)
@@ -81,10 +78,34 @@ function Photo({ url, position, scale = 1.5, rotationY = 0 }: PhotoSpec) {
     </group>
   )
 }
+// --- 🎯 composant de zoom temporaire
+function ZoomOnDrag({ zoomFactor = 0.92 }: { zoomFactor?: number }) {
+  const { camera } = useThree()
+  const baseZ = useRef(camera.position.z)
+  const [active, setActive] = useState(false)
+
+  useEffect(() => {
+    const onDown = () => setActive(true)
+    const onUp = () => setActive(false)
+    window.addEventListener("pointerdown", onDown)
+    window.addEventListener("pointerup", onUp)
+    return () => {
+      window.removeEventListener("pointerdown", onDown)
+      window.removeEventListener("pointerup", onUp)
+    }
+  }, [])
+
+  useFrame((_, dt) => {
+    const goalZ = active ? baseZ.current * zoomFactor : baseZ.current
+    camera.position.z += (goalZ - camera.position.z) * Math.min(1, dt * 5)
+  })
+
+  return null
+}
 
 export default function PhotoScene() {
   return (
-    <div className="w-full h-[70vh]">
+    <div className="w-full h-[90vh]">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 50 }}
         dpr={[1, 2]} // DPR adaptatif
@@ -102,10 +123,25 @@ export default function PhotoScene() {
         <OrbitControls
           enableDamping
           dampingFactor={0.08}
-          maxDistance={9}
+          // ← le drag GAUCHE devient PAN (click & drag 2D)
+          mouseButtons={{
+            LEFT: THREE.MOUSE.PAN,
+            MIDDLE: THREE.MOUSE.DOLLY,
+            RIGHT: THREE.MOUSE.ROTATE,
+          }}
+          // gestes tactiles
+          touches={{ ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_PAN }}
+          // pas de rotation pour rester en "2D"
+          enableRotate={false}
+          // pan dans l'espace écran → donne un feeling 2D propre
+          screenSpacePanning
+          // limites de zoom (distance caméra-cible)
           minDistance={2}
+          maxDistance={9}
+          // toujours regarder le plan z=0
+          target={[0, 0, 0]}
         />
-
+        <ZoomOnDrag zoomFactor={0.92} />
         {/* environnement léger (HDRI de base) */}
         <Environment preset="city" />
       </Canvas>

@@ -25,8 +25,10 @@ export default function Home() {
         <section className="relative mx-auto w-4/5 h-dvh flex flex-col items-center justify-center">
           <div className="w-full flex flex-row justify-around">
             <span> [SHOW] </span>
+          
             <span> [YOUR] </span>
             <span> [ART] </span>
+         
           </div>
           <video className="opacity-45 h-dvh" muted autoPlay loop playsInline>
             <source src="/images/heromp.mp4" type="video/mp4" />
@@ -62,12 +64,11 @@ export default function Home() {
           </div>
         </section>
         {/* EXPLORE 3D */}
-       
       </div>
-       <section>
-          <PhotoScene/>
-          {/* <PhotoWallScene/> */}
-        </section>
+      <section className="mx-auto w-full min-h-screen">
+        <PhotoScene />
+        {/* <PhotoWallScene/> */}
+      </section>
     </>
   )
 }
