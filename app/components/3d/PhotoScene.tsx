@@ -64,7 +64,7 @@ function Photo({ url, position, scale = 1.5, rotationY = 0 }: PhotoSpec) {
         url={url}
         transparent
         toneMapped
-        scale={[scale, scale, 1]}
+        // scale={[scale, scale, 1]}
         onPointerOver={(e) => {
           e.stopPropagation()
           setHovered(true)
