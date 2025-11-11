@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
+import { Header } from "./components/header/Header"
 
 const anticDidone = localFont({
   src: "./fonts/AnticDidone-Regular.ttf",
@@ -25,7 +26,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${anticDidone.variable} antialiased`}>
-        {children}
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
   )

@@ -1,8 +1,9 @@
 import Image from "next/image"
-import Link from "next/link"
+
 
 import Separator from "./components/ui/Separator/Separator"
 import PhotoScene from "./components/3d/PhotoScene"
+import { Header } from "./components/header/Header"
 
 
 export default function Home() {
@@ -10,17 +11,7 @@ export default function Home() {
     <>
       <div className="mx-auto flex flex-col items-center justify-center font-sans">
         {/* HEADER */}
-        <div className="w-full p-10 flex flex-row justify-between ">
-          <span className="text-white font-mono"> melly4rt presents</span>
-          <div className="flex flex-col items-center justify-center">
-            <Link className="text-white" href="./artists">
-              ARTISTS.
-            </Link>
-            <Link className="text-white" href="./contact">
-              CONTACT.
-            </Link>
-          </div>
-        </div>
+      
         {/* HERO SECTION */}
         <section className="relative mx-auto w-4/5 h-dvh flex flex-col items-center justify-center">
           <div className="w-full flex flex-row justify-around">

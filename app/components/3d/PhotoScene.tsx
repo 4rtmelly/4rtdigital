@@ -140,7 +140,7 @@ function ZoomOnDrag({ zoomFactor = 0.92 }: { zoomFactor?: number }) {
 
 export default function PhotoScene() {
   return (
-    <div className="w-full h-[80vh]">
+    <div className="w-full h-[90vh]">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 50 }}
         dpr={[1, 2]} // DPR adaptatif
