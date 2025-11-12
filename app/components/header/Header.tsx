@@ -14,7 +14,8 @@ export function Header() {
             transition-colors duration-500
             before:absolute before:inset-0 before:bg-white 
             before:scale-y-0  before:transition-transform before:duration-500 
-            hover:before:scale-y-100 hover:text-black 
+            hover:before:scale-y-100 hover:text-black active:text-black
+            active::before:scale-y-100 active:text-black 
             before:-z-10"
               href="./artists"
             >
@@ -26,6 +27,7 @@ export function Header() {
             before:absolute before:inset-0 before:bg-white 
             before:scale-y-0  before:transition-transform before:duration-500 
             hover:before:scale-y-100 hover:text-black 
+            active::before:scale-y-100 active:text-black 
             before:-z-10"
               href="./contact"
             >

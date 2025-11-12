@@ -13,12 +13,12 @@ export default function Contact() {
         />
         {/* <div className="absolute inset-0 flex flex-col items-center justify-center"> */}
           {" "}
-          <h3 className="text-white text-4xl font-sans italic font-semibold">
+          <h3 className="text-white text-2xl flex flex-row items-center justify-center font-sans italic font-semibold">
             {" "}
             [WANT TO GET EXPOSED ?]
           </h3>
         {/* </div> */}
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center p-10">
           <p>01 PRESENT YOURSELF</p>
           <p>02 TELL ME MORE ABOUT YOUR ART STYLE</p>
           <p>03 SHARE YOUR ARTWORK</p>

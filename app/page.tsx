@@ -24,7 +24,7 @@ export default function Home() {
             Votre navigateur ne supporte pas la vidéo HTML5.
           </video>
           {/* hero title */}
-          <div className="absolute inset-0 flex flex-row items-center justify-center z-1">
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-1">
             {/* <h1 className="italic text-white text-5xl font-sans text-center">
               4rt digital{" "}
               <span className="italic text-white text-5xl font-mono ">
