@@ -1,38 +1,50 @@
 import Image from "next/image"
 
-
 import Separator from "./components/ui/Separator/Separator"
 import PhotoScene from "./components/3d/PhotoScene"
 import { Header } from "./components/header/Header"
-
+import BlurText from "./components/ui/Blurry/BlurText"
 
 export default function Home() {
   return (
     <>
       <div className="mx-auto flex flex-col items-center justify-center font-sans">
         {/* HEADER */}
-      
+
         {/* HERO SECTION */}
         <section className="relative mx-auto w-4/5 h-dvh flex flex-col items-center justify-center">
           <div className="w-full flex flex-row justify-around">
             <span> [SHOW] </span>
-          
+
             <span> [YOUR] </span>
             <span> [ART] </span>
-         
           </div>
           <video className="opacity-45 h-dvh" muted autoPlay loop playsInline>
             <source src="/images/heromp.mp4" type="video/mp4" />
             Votre navigateur ne supporte pas la vidéo HTML5.
           </video>
           {/* hero title */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-1">
-            <h1 className="italic text-white text-5xl font-sans text-center">
+          <div className="absolute inset-0 flex flex-row items-center justify-center z-1">
+            {/* <h1 className="italic text-white text-5xl font-sans text-center">
               4rt digital{" "}
               <span className="italic text-white text-5xl font-mono ">
                 gallery
               </span>
-            </h1>
+            </h1> */}
+            <BlurText
+              text="4rt digital "
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="italic text-white text-5xl font-sans text-center"
+            />
+            <BlurText
+              text="gallery "
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="italic text-white text-5xl font-mono "
+            />
           </div>
           <p className="w-full flex justify-start">
             DISCOVER EMERGENT ARTIST <br /> THROUGH MONTHLY CHANGES
@@ -56,10 +68,6 @@ export default function Home() {
         </section>
         {/* EXPLORE 3D */}
       </div>
-      <section className="mx-auto w-full min-h-screen">
-        <PhotoScene />
-        {/* <PhotoWallScene/> */}
-      </section>
     </>
   )
 }
