@@ -1,21 +1,17 @@
 import Image from "next/image"
 
 import Separator from "./components/ui/Separator/Separator"
-import PhotoScene from "./components/3d/PhotoScene"
-import { Header } from "./components/header/Header"
 import BlurText from "./components/ui/Blurry/BlurText"
+import Link from "next/link"
 
 export default function Home() {
   return (
     <>
       <div className="mx-auto flex flex-col items-center justify-center font-sans">
-        {/* HEADER */}
-
         {/* HERO SECTION */}
         <section className="relative mx-auto w-4/5 h-dvh flex flex-col items-center justify-center">
           <div className="w-full flex flex-row justify-around">
             <span> [SHOW] </span>
-
             <span> [YOUR] </span>
             <span> [ART] </span>
           </div>
@@ -46,9 +42,14 @@ export default function Home() {
               className="italic text-white text-5xl font-mono "
             />
           </div>
-          <p className="w-full flex justify-start">
-            DISCOVER EMERGENT ARTIST <br /> THROUGH MONTHLY CHANGES
-          </p>
+          <div className="w-full flex justify-start">
+            <Link
+              href="./artists"
+              className="p-3 border-1 border-white rounded-xl "
+            >
+              DISCOVER EMERGENT ARTIST <br /> THROUGH MONTHLY CHANGES
+            </Link>
+          </div>
         </section>
         {/* INTRO SECTION */}
         <section className=" mx-auto w-4/5 min-h-screen flex flex-col items-center justify-between">

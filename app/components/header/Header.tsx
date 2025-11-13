@@ -2,9 +2,10 @@ import Link from "next/link"
 export function Header() {
   return (
     <>
-      <div className="mx-auto flex flex-col items-center justify-center font-sans">
+
+      <header className="mx-auto flex flex-col items-center justify-center font-sans">
         <div className="w-full p-10 flex flex-row justify-between ">
-          <Link href="./" className="text-white font-mono">
+          <Link href="./" className="text-white font-mono text-lg">
             {" "}
             melly4rt presents
           </Link>
@@ -35,7 +36,7 @@ export function Header() {
             </Link>
           </div>
         </div>
-      </div>
+      </header>
     </>
   )
 }

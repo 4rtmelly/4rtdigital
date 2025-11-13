@@ -15,7 +15,7 @@ export default function Contact() {
           {" "}
           <h3 className="text-white text-2xl flex flex-row items-center justify-center font-sans italic font-semibold">
             {" "}
-            [WANT TO GET EXPOSED ?]
+            [WANT TO BE PART OF IT ?]
           </h3>
         {/* </div> */}
         <div className="flex flex-col justify-center p-10">

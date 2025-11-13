@@ -11,7 +11,7 @@ export default function Artists() {
       <section className="mx-auto w-full min-h-screen flex flex-col items-center justify-center ">
         {/* <div  className="flex w-3/5 h-px bg-white" /> */}
 
-        <div className="flex flex-row items-center  justify-center z-1">
+        <div className="flex flex-row items-center  justify-center z-1 pb-10">
           <BlurText
             text="explore "
             delay={150}
