@@ -11,9 +11,9 @@ export default function Home() {
         {/* HERO SECTION */}
         <section className="relative mx-auto w-4/5 h-dvh flex flex-col items-center justify-center">
           <div className="w-full flex flex-row justify-around">
-            <span> [SHOW] </span>
-            <span> [YOUR] </span>
-            <span> [ART] </span>
+            <span className="text-white"> [SHOW] </span>
+            <span className="text-white"> [YOUR] </span>
+            <span className="text-white"> [ART] </span>
           </div>
           <video className="opacity-45 h-dvh" muted autoPlay loop playsInline>
             <source src="/images/heromp.mp4" type="video/mp4" />
@@ -45,7 +45,7 @@ export default function Home() {
           <div className="w-full flex justify-start">
             <Link
               href="./artists"
-              className="p-3 border-1 border-white rounded-xl "
+              className="text-white p-3 border-1 border-white rounded-xl "
             >
               DISCOVER EMERGENT ARTIST <br /> THROUGH MONTHLY CHANGES
             </Link>
