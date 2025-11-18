@@ -16,7 +16,7 @@ export default function Home() {
             <span className="text-white font-bold italic"> [ART] </span>
           </div>
           <video className=" h-dvh" muted autoPlay loop playsInline>
-            <source src="/images/aurora.webm" type="video/webm" />
+            <source src="/images/aurora.mp4" type="video/mp4" />
             Votre navigateur ne supporte pas la vidéo HTML5.
           </video>
           {/* hero title */}
