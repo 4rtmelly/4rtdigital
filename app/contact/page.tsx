@@ -11,8 +11,12 @@ export default function Contact() {
           height={400}
           alt="bouquet de lys"
         /> */}
-        <video muted autoPlay loop playsInline>
+        {/* <video muted autoPlay loop playsInline>
           <source src="/images/contact.webm" type="video/webm" />
+          Votre navigateur ne supporte pas la vidéo HTML5.
+        </video> */}
+         <video muted autoPlay loop playsInline>
+          <source src="/images/contactMobile.mp4" type="video/mp4" />
           Votre navigateur ne supporte pas la vidéo HTML5.
         </video>
         {/* <div className="absolute inset-0 flex flex-col items-center justify-center"> */}{" "}
