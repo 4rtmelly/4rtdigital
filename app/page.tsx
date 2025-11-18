@@ -15,8 +15,8 @@ export default function Home() {
             <span className="text-white"> [YOUR] </span>
             <span className="text-white"> [ART] </span>
           </div>
-          <video className="opacity-45 h-dvh" muted autoPlay loop playsInline>
-            <source src="/images/heromp.mp4" type="video/mp4" />
+          <video className=" h-dvh" muted autoPlay loop playsInline>
+            <source src="/images/aurora.webm" type="video/webm" />
             Votre navigateur ne supporte pas la vidéo HTML5.
           </video>
           {/* hero title */}
