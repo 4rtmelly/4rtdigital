@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function Contact() {
   return (
     <>
-      <section className="mx-auto h-screen flex flex-col items-center jusitfy-center">
+      <section className="mx-auto flex flex-col items-center jusitfy-center">
         {/* <Image
           className="opacity-40 pt-10"
           src="/images/sflower6.jpg"
@@ -15,7 +15,7 @@ export default function Contact() {
           <source src="/images/contact.webm" type="video/webm" />
           Votre navigateur ne supporte pas la vidéo HTML5.
         </video> */}
-         <video muted autoPlay loop playsInline>
+        <video muted autoPlay loop playsInline>
           <source src="/images/contactMobile.mp4" type="video/mp4" />
           Votre navigateur ne supporte pas la vidéo HTML5.
         </video>
