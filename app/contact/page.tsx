@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Contact() {
   return (
@@ -18,7 +19,8 @@ export default function Contact() {
           <p>01 PRESENT YOURSELF</p>
           <p>02 TELL ME MORE ABOUT YOUR ART STYLE</p>
           <p>03 SHARE YOUR ARTWORK</p>
-          <p>CONTACT ME AT NGY.AMELIE@GMAIL.COM</p>
+          <Link className="underline " href="mailto:ngy.amelie@gmail.com"><p>CONTACT ME AT NGY.AMELIE@GMAIL.COM</p></Link>
+          
         </div>
       </section>
     </>
