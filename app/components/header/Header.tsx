@@ -18,9 +18,9 @@ export function Header() {
             hover:before:scale-y-100 hover:text-black active:text-black
             active::before:scale-y-100 active:text-black 
             before:-z-10"
-              href="./artists"
+              href="./artworks"
             >
-              ARTISTS.
+              ARTWORKS.
             </Link>
             <Link
               className="relative px-4 py-2 text-white overflow-hidden 
