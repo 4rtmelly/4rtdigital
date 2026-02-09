@@ -25,3 +25,104 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.btn-liquid-apple-dark{
+  --r: 999px;
+
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: .85rem 1.6rem;
+  border-radius: var(--r);
+
+  font-weight: 520;
+  letter-spacing: .15px;
+
+  color: rgba(255,255,255,.88);
+
+  /* Corps du verre : TRÈS sombre */
+  background:
+    /* highlight doux haut */
+    radial-gradient(120% 90% at 30% 0%,
+      rgba(255,255,255,.08) 0%,
+      rgba(255,255,255,0) 60%
+    ),
+    /* densité basse */
+    linear-gradient(180deg,
+      rgba(255,255,255,.04),
+      rgba(0,0,0,.20)
+    ),
+    rgba(20,20,20,.55);
+
+  /* Clé du rendu */
+  backdrop-filter: blur(30px) saturate(140%);
+  -webkit-backdrop-filter: blur(30px) saturate(140%);
+
+  /* Bords quasi invisibles */
+  border: 1px solid rgba(255,255,255,.06);
+
+  box-shadow:
+    /* séparation subtile du fond */
+    0 10px 30px rgba(0,0,0,.45),
+    /* bevel interne ultra léger */
+    inset 0 1px 0 rgba(255,255,255,.08),
+    inset 0 -1px 0 rgba(0,0,0,.45);
+
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    filter 160ms ease;
+}
+
+/* Edge shading Apple (anneau interne) */
+.btn-liquid-apple-dark::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+
+  background:
+    linear-gradient(180deg,
+      rgba(255,255,255,.10),
+      rgba(255,255,255,0) 35%,
+      rgba(0,0,0,.45)
+    );
+
+  opacity: .55;
+
+  -webkit-mask:
+    radial-gradient(closest-side,
+      transparent calc(100% - 2px),
+      #000 calc(100% - 1px));
+          mask:
+    radial-gradient(closest-side,
+      transparent calc(100% - 2px),
+      #000 calc(100% - 1px));
+}
+
+/* Contenu au-dessus */
+.btn-liquid-apple-dark > *{
+  position: relative;
+  z-index: 1;
+}
+
+.btn-liquid-apple-dark:hover{
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 40px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.10),
+    inset 0 -1px 0 rgba(0,0,0,.55);
+  filter: saturate(1.05);
+}
+
+.btn-liquid-apple-dark:active{
+  transform: translateY(0) scale(.99);
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 -1px 0 rgba(0,0,0,.65);
+}
