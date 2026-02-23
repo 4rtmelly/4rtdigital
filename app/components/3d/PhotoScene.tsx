@@ -171,6 +171,7 @@ export default function PhotoScene() {
         <OrbitControls
           ref={controlsRef}
           enableDamping
+          enableZoom={false}
           dampingFactor={0.08}
           mouseButtons={{
             LEFT: THREE.MOUSE.PAN,
