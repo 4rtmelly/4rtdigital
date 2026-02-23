@@ -17,7 +17,7 @@ export function Header() {
             hover:before:scale-y-100 hover:text-black active:text-black
             active::before:scale-y-100 active:text-black 
             before:-z-10"
-              href="./artworks"
+              href="/#artworks"
             >
               ARTWORKS.
             </Link>
@@ -29,7 +29,7 @@ export function Header() {
             hover:before:scale-y-100 hover:text-black 
             active::before:scale-y-100 active:text-black 
             before:-z-10"
-              href="./contact"
+              href="/#contact"
             >
               CONTACT.
             </Link>

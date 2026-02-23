@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import ClothImage from "../components/3d/ClothImage/ClothImage"
+import ParticleEarth from "../components/3d/Earth/ParticleEarth"
 
 export default function Contact() {
   return (
@@ -20,6 +21,11 @@ export default function Contact() {
           <Link className="underline " href="mailto:ngy.amelie@gmail.com">
             <p>CONTACT ME AT NGY.AMELIE@GMAIL.COM</p>
           </Link>
+        </div>
+      </section>
+      <section className="w-full min-h-screen ">
+        <div style={{ width: "100%", height: "100%" }}>
+          <ParticleEarth />
         </div>
       </section>
     </>

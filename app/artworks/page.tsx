@@ -28,12 +28,7 @@ export default function Artists() {
     
             className="italic text-white text-5xl font-mono "
           />
-          {/* <h1 className="italic text-white text-5xl font-sans text-center">
-            explore{" "}
-            <span className="italic text-white text-5xl font-mono ">
-              artworks
-            </span>
-          </h1> */}
+          
         </div>
         <PhotoScene />
       </section>
