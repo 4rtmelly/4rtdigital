@@ -73,7 +73,7 @@ export default function Home() {
             before:scale-y-0  before:transition-transform before:duration-500 
             hover:before:scale-y-100 hover:text-black active:text-black
             active::before:scale-y-100 active:text-black 
-            before:-z-10 italic text-white text-4xl  font-bold md:text-8xl"
+            before:-z-10 italic text-white text-4xl  font-bold md:text-6xl"
         >
           {" "}
           The world is full of artists who need to be seen.
