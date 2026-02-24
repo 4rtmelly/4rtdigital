@@ -10,6 +10,7 @@ import useIsMobile from "./components/helper/isMobile"
 import ParticleEarth from "./components/3d/Earth/ParticleEarth"
 import PhotoScene from "./components/3d/PhotoScene"
 import ClothImage from "./components/3d/ClothImage/ClothImage"
+import { SplitText } from "./components/ui/SplitText/SplitText"
 export default function Home() {
   const [scrollY, setScrollY] = useState(0)
 
@@ -74,10 +75,15 @@ export default function Home() {
 
         {/* INTRO SECTION */}
         <section className="w-full min-h-screen flex flex-col items-center justify-between  md:flex-row">
-          <h2 className="m-8 font-bold text-white text-6xl md:text-6xl">
+          {/* <h2 className="m-8 font-bold text-white text-6xl md:text-6xl">
             {" "}
             The world is full of artists who need to be seen.
-          </h2>
+          </h2> */}
+          <SplitText
+            as="h2"
+            text="The world is full of artists who need to be seen."
+            className="m-8 text-white font-bold tracking-tight text-6xl"
+          />
           <div className="w-4/5 flex flex-col items-center justify-center font-sans mt-10 md:w-3/5">
             <p className="mt-10 font-sans text-xl text-white">
               {" "}
@@ -93,7 +99,10 @@ export default function Home() {
               artist all around the world ]
             </span>
 
-            <div className=" bg-stone-50  mt-4 p-2 flex flex-row items-center justify-center rounded-full ">
+            <div
+              className="transition-transform duration-300 ease-out
+    hover:scale-[1.07] bg-stone-50  mt-4 p-2 flex flex-row items-center justify-center rounded-full "
+            >
               <Link href="#artworks">
                 <BlurText
                   text="discover artworks"
@@ -130,8 +139,6 @@ export default function Home() {
           id="artworks"
           className="mx-auto mt-16 w-full min-h-screen flex flex-col items-center justify-center "
         >
-          {/* <div  className="flex w-3/5 h-px bg-white" /> */}
-
           <div className="flex flex-row items-center m-2 justify-center z-1 pb-10">
             <BlurText
               text="explore "
@@ -157,10 +164,11 @@ export default function Home() {
           id="contact"
           className="w-full min-h-screen mx-auto flex flex-col items-left justify-center"
         >
-          <h2 className="m-8 font-bold text-white text-6xl md:text-6xl">
-            {" "}
-            Want to be part of it ?
-          </h2>
+          <SplitText
+            as="h2"
+            text=" Want to be part of it ?"
+            className="m-8 text-white font-bold tracking-tight text-6xl"
+          />
           <div className="w-full flex flex-col items-center ">
             <ClothImage url="/images/sflower6.jpg" />
           </div>
@@ -176,7 +184,10 @@ export default function Home() {
 
           {/* CTA CONTACT */}
           <div className="w-full flex flex-row justify-center mt-10 ">
-            <div className=" bg-stone-50  flex flex-row items-center justify-center rounded-full p-2 ">
+            <div
+              className=" transition-transform duration-300 ease-out
+    hover:scale-[1.07] bg-stone-50  flex flex-row items-center justify-center rounded-full p-2 "
+            >
               <Link href="mailto:ngy.amelie@gmail.com">
                 <BlurText
                   text="apply to join the digital gallery"
