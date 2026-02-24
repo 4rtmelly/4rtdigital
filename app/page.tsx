@@ -78,8 +78,8 @@ export default function Home() {
             {" "}
             The world is full of artists who need to be seen.
           </h2>
-          <div className="w-3/5 flex flex-col items-center justify-center font-sans mt-10">
-            <p className="mt-10 font-sans text-2xl text-white">
+          <div className="w-4/5 flex flex-col items-center justify-center font-sans mt-10 md:w-3/5">
+            <p className="mt-10 font-sans text-xl text-white">
               {" "}
               4rt digital&apos;s aim is to give{" "}
               <span className="font-bold italic text-xl ">visibility</span> for
@@ -87,7 +87,7 @@ export default function Home() {
               in a collective 3D canvas that mixes different styles. <br /> A
               rotation of artists, artworks and topics is made monthly.
             </p>
-            <span className="text-white left-0 text-2xl">
+            <span className="mt-2 text-white left-0 text-xl">
               {" "}
               [ discover new styles, new artworks ] <br /> [ from talented
               artist all around the world ]
@@ -148,6 +148,7 @@ export default function Home() {
               className="italic text-white text-5xl font-mono "
             />
           </div>
+
           <PhotoScene />
         </section>
 

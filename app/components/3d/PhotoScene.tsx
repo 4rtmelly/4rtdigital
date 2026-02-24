@@ -136,7 +136,7 @@ export default function PhotoScene() {
 
   console.log(layoutMode)
   return (
-    <div className="w-full h-[90vh] flex flex-col  items-center ">
+    <div className="w-full h-[50vh] flex flex-col  items-center md:h-[90vh]">
       {/* <button
         className=" w-50 z-10  mb-6 btn-liquid-apple-dark text-white text-sm font-bold "
         onClick={() => setHandEnabled((v) => !v)}
