@@ -9,7 +9,7 @@ export default function ParticleEarth() {
   // Paramètres faciles à tuner
   const params = useMemo(
     () => ({
-      radius: 0.9,
+      radius: 0.8,
       points: 20000, // augmente si ton GPU suit
       size: 0.012,
       rotateSpeed: 0.12, // rad/s
@@ -29,7 +29,7 @@ export default function ParticleEarth() {
     const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100)
     camera.position.set(0, -0.2 , 3)
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false })
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.setSize(el.clientWidth, el.clientHeight, false)
     el.appendChild(renderer.domElement)
