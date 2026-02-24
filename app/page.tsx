@@ -70,7 +70,7 @@ export default function Home() {
         <section className="w-full min-h-screen flex flex-col items-center justify-between  md:flex-row">
           <div className="flex flex-col items-center justify-between ">
             <SplitText
-              as="h2"
+              // as="h2"
               text="The world is full of artists who need to be seen."
               className="m-8 text-white font-bold tracking-tight text-6xl"
             />
@@ -112,8 +112,8 @@ export default function Home() {
           {/* Gradient here */}
           <div className="pointer-events-none absolute inset-0">
             <div
-              className="absolute -bottom-250 left-1/2 -translate-x-1/2 
-                    h-[70vh] w-[90vw] 
+              className="absolute -bottom-280 left-1/2 -translate-x-1/2 
+                    h-[70vh] w-[40vw] 
                     rounded-full 
                     bg-[#95A3FF] 
                     opacity-40 
@@ -190,7 +190,7 @@ export default function Home() {
           className="w-full min-h-screen mx-auto flex flex-col items-left justify-center"
         >
           <SplitText
-            as="h2"
+            // as="h2"
             text=" Want to be part of it ?"
             className="m-8 text-white font-bold tracking-tight text-6xl"
           />
