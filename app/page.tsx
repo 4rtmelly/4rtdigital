@@ -162,7 +162,7 @@ export default function Home() {
         {/* EXPLORE 3D */}
         <section
           id="artworks"
-          className="mx-auto mt-16 w-full min-h-screen flex flex-col items-center justify-center "
+          className="mx-auto mt-16 w-full cursor-pointer min-h-screen flex flex-col items-center justify-center "
         >
           <div className="flex flex-row items-center m-2 justify-center z-1 pb-10">
             <BlurText
